@@ -183,11 +183,17 @@ export function deactivate() {
 
 function createLsp(config: vscode.WorkspaceConfiguration) {
   const command = config.get<string>("lsp.command");
+  const bazelBuiltinProto = config.get<string>("lsp.builtinProto");
   const args = config.get<string[]>("lsp.args");
 
   const serverOptions: ServerOptions = {
     args,
     command,
+    options: {
+      env: {
+        "BAZEL_LSP_BUILTIN_PROTO": bazelBuiltinProto,
+      },
+    },
   };
 
   const clientOptions: LanguageClientOptions = {

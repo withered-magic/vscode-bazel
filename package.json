@@ -224,6 +224,11 @@
                         "--bazel"
                     ],
                     "description": "The arguments to pass to the LSP executable"
+                },
+                "bazel.lsp.builtinProto": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path to a Bazel builtins protobuf file, used by the LSP to provide type information for builtin Bazel types and globals"
                 }
             }
         },
